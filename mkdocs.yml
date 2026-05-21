@@ -1,0 +1,55 @@
+site_name: Python Project Template
+site_description: FastAPI Clean Architecture Project Template
+site_author: Valeriu Pirtac
+repo_url: https://github.com/valeriu-pirtac/python-project-template
+repo_name: python-project-template
+
+theme:
+    name: material
+    palette:
+        - scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/brightness-7
+              name: Switch to dark mode
+        - scheme: slate
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/brightness-4
+              name: Switch to light mode
+    features:
+        - navigation.tabs
+        - navigation.sections
+        - navigation.top
+        - search.suggest
+        - search.highlight
+        - content.code.annotate
+        - content.code.copy
+
+nav:
+    - Home: index.md
+    # - Architecture:
+    #       - Overview: architecture/overview.md
+    #       - Layers: architecture/layers.md
+    # - Development:
+    #       - Getting Started: development/getting-started.md
+    #       - Configuration: development/configuration.md
+    #       - Testing: development/testing.md
+    # - API Reference:
+    #       - Endpoints: api/endpoints.md
+
+markdown_extensions:
+    - pymdownx.highlight:
+          anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - admonition
+    - pymdownx.details
+    - attr_list
+    - md_in_html
+
+plugins:
+    - search
