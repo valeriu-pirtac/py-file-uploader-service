@@ -30,9 +30,9 @@ theme:
 
 nav:
     - Home: index.md
-    # - Architecture:
-    #       - Overview: architecture/overview.md
-    #       - Layers: architecture/layers.md
+    - Architecture:
+          - Overview: architecture/overview.md
+          - Layers: architecture/layers.md
     # - Development:
     #       - Getting Started: development/getting-started.md
     #       - Configuration: development/configuration.md

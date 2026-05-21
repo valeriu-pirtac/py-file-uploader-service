@@ -29,3 +29,21 @@ class DuplicateEntityError(DomainError):
         super().__init__(f"{entity} with id {identifier!r} already exists.")
         self.entity = entity
         self.identifier = identifier
+
+
+class ChecksumMismatchError(ValidationError):
+    """Raised when an uploaded chunk's checksum does not match the provided hash."""
+
+    pass
+
+
+class MalwareDetectedError(ValidationError):
+    """Raised when a virus scanning detects malware in the uploaded stream."""
+
+    pass
+
+
+class LockAcquisitionError(DomainError):
+    """Raised when a distributed lock cannot be acquired for a session."""
+
+    pass
