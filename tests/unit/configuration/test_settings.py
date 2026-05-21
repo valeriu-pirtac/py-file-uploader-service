@@ -7,8 +7,29 @@ from configuration.settings import AppSettings
 class TestSettingsDefaults:
     """Test settings load with default values."""
 
-    def test_settings_with_defaults(self) -> None:
+    def test_settings_with_defaults(self, monkeypatch) -> None:
         """Test settings load with default values when required fields provided."""
+        for key in [
+            "APP_ENV",
+            "APP_NAME",
+            "LOG_LEVEL",
+            "LOG_FORMAT",
+            "METRICS_ENABLED",
+            "HOST",
+            "PORT",
+            "WORKERS",
+            "REDIS_HOST",
+            "REDIS_PORT",
+            "REDIS_CONNECT_TIMEOUT",
+            "S3_ENDPOINT_URL",
+            "S3_ACCESS_KEY_ID",
+            "S3_SECRET_ACCESS_KEY",
+            "S3_BUCKET_NAME",
+            "S3_CONNECT_TIMEOUT",
+            "NATS_URL",
+            "NATS_CONNECT_TIMEOUT",
+        ]:
+            monkeypatch.delenv(key, raising=False)
         settings = AppSettings()
 
         assert settings.app_name == "file-uploader-service"
@@ -21,11 +42,14 @@ class TestSettingsDefaults:
         assert settings.workers == 1
         assert settings.redis_host == "localhost"
         assert settings.redis_port == 6379
+        assert settings.redis_connect_timeout == 5.0
         assert settings.s3_endpoint_url is None
         assert settings.s3_access_key_id is None
         assert settings.s3_secret_access_key is None
         assert settings.s3_bucket_name == "bronze-file-uploads"
-        assert settings.nats_url is None
+        assert settings.s3_connect_timeout == 5.0
+        assert settings.nats_url == "nats://localhost:4222"
+        assert settings.nats_connect_timeout == 5
 
 
 class TestSingletonPattern:
