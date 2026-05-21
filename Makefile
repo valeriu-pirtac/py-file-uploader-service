@@ -1,7 +1,7 @@
 .PHONY: help setup install install-dev clean clean-cache test test-unit test-integration test-e2e test-coverage test-watch lint format format-check type-check check dev dev-debug shell docs docs-serve info deps-outdated lock ci ci-coverage
 
 # Variables
-PROJECT_NAME := "Python Project Template"
+PROJECT_NAME := "File Uploader Service"
 PYTHON := python3
 UV := uv
 FLOX := flox activate --
