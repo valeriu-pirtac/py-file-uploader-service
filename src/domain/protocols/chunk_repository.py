@@ -16,7 +16,7 @@ class ChunkRepository(Protocol):
         """Retrieve a specific chunk segment of a session by its index."""
         ...
 
-    async def get_stream(self, session_id: UUID) -> AsyncIterator[bytes]:
+    def get_stream(self, session_id: UUID) -> AsyncIterator[bytes]:
         """Stream raw binary chunk contents sequentially from cache."""
         ...
 

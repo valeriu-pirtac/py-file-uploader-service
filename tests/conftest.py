@@ -6,6 +6,12 @@ Provides:
 - Async HTTP client fixture for async tests
 """
 
+import os
+
+
+# Force testing environment before importing FastAPI app or settings
+os.environ["APP_ENV"] = "test"
+
 from collections.abc import AsyncGenerator, Generator
 from typing import Any
 
@@ -22,6 +28,7 @@ from presentation.main import app
 def test_settings() -> AppSettings:
     """Return a settings instance configured for tests."""
     return AppSettings(
+        app_env="test",
         log_level="DEBUG",
         log_format="console",
         metrics_enabled=False,

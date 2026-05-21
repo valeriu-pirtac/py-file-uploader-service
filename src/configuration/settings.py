@@ -46,6 +46,9 @@ class AppSettings(BaseAppSettings):
     # Redis Configuration
     redis_host: str = Field(default="localhost", description="Redis host")
     redis_port: int = Field(default=6379, ge=1, le=65535, description="Redis port")
+    redis_connect_timeout: float = Field(
+        default=5.0, description="Redis connection timeout in seconds"
+    )
 
     # S3 Storage Configuration
     s3_endpoint_url: str | None = Field(
@@ -56,11 +59,14 @@ class AppSettings(BaseAppSettings):
     s3_bucket_name: str = Field(
         default="bronze-file-uploads", description="S3 bucket name for raw uploads"
     )
+    s3_connect_timeout: float = Field(default=5.0, description="S3 connection timeout in seconds")
 
     # Message Broker Configuration
-    nats_url: str | None = Field(
-        default=None, description="NATS broker connection URL (e.g. nats://localhost:4222)"
+    nats_url: str = Field(
+        default="nats://localhost:4222",
+        description="NATS broker connection URL (e.g. nats://localhost:4222)",
     )
+    nats_connect_timeout: int = Field(default=5, description="NATS connection timeout in seconds")
 
     @field_validator("log_level")
     @classmethod
