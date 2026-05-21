@@ -1,8 +1,8 @@
-site_name: Python Project Template
-site_description: FastAPI Clean Architecture Project Template
+site_name: File Uploader Service
+site_description: File Uploader Service
 site_author: Valeriu Pirtac
-repo_url: https://github.com/valeriu-pirtac/python-project-template
-repo_name: python-project-template
+repo_url: https://github.com/valeriu-pirtac/py-file-uploader-service
+repo_name: py-file-uploader-service
 
 theme:
     name: material
@@ -45,7 +45,11 @@ markdown_extensions:
           anchor_linenums: true
     - pymdownx.inlinehilite
     - pymdownx.snippets
-    - pymdownx.superfences
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
     - admonition
     - pymdownx.details
     - attr_list

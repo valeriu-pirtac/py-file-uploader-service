@@ -11,7 +11,7 @@ class TestSettingsDefaults:
         """Test settings load with default values when required fields provided."""
         settings = AppSettings()
 
-        assert settings.app_name == "python-project-template"
+        assert settings.app_name == "file-uploader-service"
         assert settings.app_env == "dev"
         assert settings.log_level == "INFO"
         assert settings.log_format == "json"
@@ -19,6 +19,13 @@ class TestSettingsDefaults:
         assert settings.host == "0.0.0.0"
         assert settings.port == 8000
         assert settings.workers == 1
+        assert settings.redis_host == "localhost"
+        assert settings.redis_port == 6379
+        assert settings.s3_endpoint_url is None
+        assert settings.s3_access_key_id is None
+        assert settings.s3_secret_access_key is None
+        assert settings.s3_bucket_name == "bronze-file-uploads"
+        assert settings.nats_url is None
 
 
 class TestSingletonPattern:

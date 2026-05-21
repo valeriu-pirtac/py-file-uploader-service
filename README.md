@@ -1,6 +1,6 @@
-# python-project-template
+# File Uploader Service
 
-A production-ready **FastAPI** project template built on **Clean Architecture** (Hexagonal Architecture) principles.
+A production-ready **FastAPI** file uploader service built on **Clean Architecture** (Hexagonal Architecture) principles.
 
 ---
 
@@ -24,7 +24,7 @@ A production-ready **FastAPI** project template built on **Clean Architecture** 
 ## Project Structure
 
 ```md
-python-project-template/
+py-file-uploader-service/
 │
 ├── src/
 │   ├── application/                    # Use-case orchestration layer
@@ -127,7 +127,7 @@ Copy `.env.example` to `.env` and adjust as needed:
 
 | Variable          | Default                   | Description                               |
 | ----------------- | ------------------------- | ----------------------------------------- |
-| `APP_NAME`        | `python-project-template` | Application Name                          |
+| `APP_NAME`        | `file-uploader-service` | Application Name                          |
 | `APP_ENV`         | `dev`                     | Environment (dev / test / staging / prod) |
 | `LOG_LEVEL`       | `INFO`                    | DEBUG / INFO / WARNING / ERROR / CRITICAL |
 | `LOG_FORMAT`      | `json`                    | `json` or `console`                       |

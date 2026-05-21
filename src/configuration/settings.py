@@ -28,7 +28,7 @@ class AppSettings(BaseAppSettings):
     """
 
     # Application Configuration
-    app_name: str = Field(default="python-project-template", description="Application name")
+    app_name: str = Field(default="file-uploader-service", description="Application name")
     app_env: str = Field(
         default="dev", description="Application environment (e.g. dev, staging, prod)"
     )
@@ -42,6 +42,25 @@ class AppSettings(BaseAppSettings):
     host: str = Field(default="0.0.0.0", description="Server bind host")
     port: int = Field(default=8000, ge=1, le=65535, description="Server bind port")
     workers: int = Field(default=1, gt=0, description="Number of worker processes")
+
+    # Redis Configuration
+    redis_host: str = Field(default="localhost", description="Redis host")
+    redis_port: int = Field(default=6379, ge=1, le=65535, description="Redis port")
+
+    # S3 Storage Configuration
+    s3_endpoint_url: str | None = Field(
+        default=None, description="Custom S3 endpoint URL (for MinIO/LocalStack)"
+    )
+    s3_access_key_id: str | None = Field(default=None, description="S3 access key ID")
+    s3_secret_access_key: str | None = Field(default=None, description="S3 secret access key")
+    s3_bucket_name: str = Field(
+        default="bronze-file-uploads", description="S3 bucket name for raw uploads"
+    )
+
+    # Message Broker Configuration
+    nats_url: str | None = Field(
+        default=None, description="NATS broker connection URL (e.g. nats://localhost:4222)"
+    )
 
     @field_validator("log_level")
     @classmethod

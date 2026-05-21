@@ -1,5 +1,7 @@
 """End-to-end tests for the health and index endpoints."""
 
+from typing import Any
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -26,7 +28,7 @@ class TestIndexEndpoint:
         assert response.status_code == 200
 
     def test_index_returns_service_info(self, client: TestClient) -> None:
-        data = client.get("/v1/").json()
-        assert data["service"] == "python-project-template"
+        data: dict[str, Any] = client.get("/v1/").json()
+        assert data["service"] == "file-uploader-service"
         assert data["status"] == "ok"
         assert "version" in data
